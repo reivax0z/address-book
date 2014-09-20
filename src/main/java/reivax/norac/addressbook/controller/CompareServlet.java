@@ -61,7 +61,7 @@ public class CompareServlet extends HttpServlet {
 	private void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		 // Create path components to save the file
-	    final Part filePart = request.getPart("file");
+//	    final Part filePart = request.getPart("file");
 	    
 	    try{
 //	    	UploadJsonFile.upload(filePath, fileName, filePart);
