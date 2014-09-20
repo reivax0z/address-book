@@ -19,6 +19,12 @@ import reivax.norac.addressbook.util.ComparatorExact;
 import reivax.norac.addressbook.util.ComparatorClose;
 import reivax.norac.addressbook.util.SearchManager;
 
+/**
+ * Servlet dedicated to removing an entry in Address Book.
+ * 
+ * @author Xavier
+ *
+ */
 public class RemoveServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -46,8 +52,10 @@ public class RemoveServlet extends HttpServlet {
 
 	private void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		// Get parameter
 		int id = Integer.parseInt(request.getParameter("remove_id"));
 		
+		// Remove from Model
 		List<Entry> book = Model.getInstance().getCurrentAddressBook();
 		for(Entry e : book){
 			if(e.getId() == id){
@@ -56,6 +64,7 @@ public class RemoveServlet extends HttpServlet {
 			}
 		}
 		
+		// Get back updated book from Model
 		book = Model.getInstance().getCurrentAddressBook();
 		Collections.sort(book, new ComparatorExact());
 		request.setAttribute("book", book);

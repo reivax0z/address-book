@@ -44,8 +44,6 @@
 <!-- MY JS FILES -->
 <script type="text/javascript" src="./bootstrap-3.2.0/js/formchecker.js"></script>
 <script type="text/javascript" src="./bootstrap-3.2.0/js/activetab.js"></script>
-<script type="text/javascript"
-	src="./bootstrap-3.2.0/js/autocomplete.js"></script>
 	
 <script type="text/javascript">
 	var activeTab = 0;

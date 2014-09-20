@@ -13,6 +13,12 @@ import org.json.simple.parser.JSONParser;
 
 import reivax.norac.addressbook.model.Entry;
 
+/**
+ * Helper class for Json to Entry conversion.
+ * 
+ * @author Xavier
+ *
+ */
 public class JsonDecode {
 
 	public static List<Entry> decodeBook(String filePath) throws org.json.simple.parser.ParseException, IOException{

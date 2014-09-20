@@ -8,6 +8,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Database access and interaction.
+ * 
+ * @author Xavier
+ *
+ */
 public class DBConnection {
 	
 	private static Connection con = null;

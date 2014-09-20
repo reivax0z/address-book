@@ -1,5 +1,11 @@
 package reivax.norac.addressbook.model;
 
+/**
+ * Entities represented in the Address Book.
+ * 
+ * @author Xavier
+ *
+ */
 public class Entry {
 
 	private int id;

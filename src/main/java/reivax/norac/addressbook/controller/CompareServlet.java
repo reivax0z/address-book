@@ -31,6 +31,12 @@ import reivax.norac.addressbook.util.JsonDecode;
 import reivax.norac.addressbook.util.SearchManager;
 import reivax.norac.addressbook.util.UploadJsonFile;
 
+/**
+ * Servlet dedicated to compare the Address Book with another one.
+ * 
+ * @author Xavier
+ *
+ */
 public class CompareServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -60,11 +66,8 @@ public class CompareServlet extends HttpServlet {
 
 	private void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		 // Create path components to save the file
-//	    final Part filePart = request.getPart("file");
-	    
+	    // Step1: Upload the file on system
 	    try{
-//	    	UploadJsonFile.upload(filePath, fileName, filePart);
 	    	UploadJsonFile.upload2(request, filePath, fileName);
 	    } catch (IOException e){
 			request.setAttribute("isInError", Boolean.TRUE);
@@ -76,18 +79,25 @@ public class CompareServlet extends HttpServlet {
 			return;
 		}
 	    
+	    // Step2: Decode and compare the file
 	    try {
+	    	// Decode the file
 			List<Entry> uploaded = JsonDecode.decodeBook(filePath + File.separator
 			        + fileName);
 			
+			// Get book from Model
 			List<Entry> book = Model.getInstance().getCurrentAddressBook();
 			
+			// Get similar and different results
 			Collection<Entry> similar = new ArrayList<Entry>( book );
 			Collection<Entry> different = new ArrayList<Entry>();
 			different.addAll( book );
 			different.addAll( uploaded );
 
+			// Keep similar names
 			similar.retainAll( uploaded );
+			
+			// Keep different names
 			different.removeAll( similar );
 			
 			request.setAttribute("similarNames", similar);

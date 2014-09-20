@@ -7,6 +7,12 @@ import org.json.simple.JSONObject;
 
 import reivax.norac.addressbook.model.Entry;
 
+/**
+ * Helper class for Entry to Json encoding.
+ * 
+ * @author Xavier
+ *
+ */
 public class JsonEncode {
 
 	public static JSONArray encodeBook(List<Entry> book){

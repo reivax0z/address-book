@@ -16,6 +16,12 @@ import reivax.norac.addressbook.model.Entry;
 import reivax.norac.addressbook.model.Model;
 import reivax.norac.addressbook.util.ComparatorExact;
 
+/**
+ * Servlet dedicated to display the Address Book.
+ * 
+ * @author Xavier
+ *
+ */
 public class BookServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -43,6 +49,7 @@ public class BookServlet extends HttpServlet {
 
 	private void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		// Get book from Model
 		List<Entry> book = Model.getInstance().getCurrentAddressBook();
 		Collections.sort(book, new ComparatorExact());
 

@@ -19,6 +19,12 @@ import reivax.norac.addressbook.util.ComparatorExact;
 import reivax.norac.addressbook.util.ComparatorClose;
 import reivax.norac.addressbook.util.SearchManager;
 
+/**
+ * Servlet dedicated to adding new entry in Address Book.
+ * 
+ * @author Xavier
+ *
+ */
 public class AddServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -46,14 +52,17 @@ public class AddServlet extends HttpServlet {
 
 	private void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		// Get parameters
 		String name = request.getParameter("add_name");
 		String phone = request.getParameter("add_phone");
 		Entry e = new Entry();
 		e.setName(name);
 		e.setPhone(phone);
 		
+		// Delegate adding to the model
 		Model.getInstance().addEntry(e);
 
+		// Get the updated book back
 		List<Entry> book = Model.getInstance().getCurrentAddressBook();
 		Collections.sort(book, new ComparatorExact());
 		request.setAttribute("book", book);

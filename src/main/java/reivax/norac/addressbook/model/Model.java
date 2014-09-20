@@ -1,9 +1,13 @@
 package reivax.norac.addressbook.model;
 
-import java.util.ArrayList;
 import java.util.List;
-
-public class Model {
+/**
+ * Model used to store the address book in memory.
+ * 
+ * @author Xavier
+ *
+ */
+public class Model implements IModel{
 
 	private DBConnection conn = null;
 	
@@ -11,20 +15,20 @@ public class Model {
 		conn = new DBConnection();
 	}
 	
+	// Singleton, only one model
 	private static Model singleton = new Model();
 	
 	public static Model getInstance(){
 		return singleton;
 	}
 	
+	// The address book
 	private List<Entry> currentAddressBook = DBConnection.getBook();
 	
-	List<Entry> anotherAddressBook = new ArrayList<Entry>();
-
 	public List<Entry> getCurrentAddressBook() {
 		return currentAddressBook;
 	}
-	
+
 	public void setCurrentAddressBook(List<Entry> currentAddressBook) {
 		this.currentAddressBook = currentAddressBook;
 	}

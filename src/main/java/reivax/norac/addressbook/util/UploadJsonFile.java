@@ -16,68 +16,67 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+/**
+ * Helper class for file upload.
+ * 
+ * @author Xavier
+ *
+ */
 public class UploadJsonFile {
 
 	public static void upload(String filePath, String fileName, Part filePart) throws IOException{
-	
-    OutputStream out = null;
-    InputStream filecontent = null;
 
-    try {
-        out = new FileOutputStream(new File(filePath + File.separator
-                + fileName));
-        filecontent = filePart.getInputStream();
+		OutputStream out = null;
+		InputStream filecontent = null;
 
-        int read = 0;
-        final byte[] bytes = new byte[1024];
+		try {
+			out = new FileOutputStream(new File(filePath + File.separator
+					+ fileName));
+			filecontent = filePart.getInputStream();
 
-        while ((read = filecontent.read(bytes)) != -1) {
-            out.write(bytes, 0, read);
-        }
-    } catch (FileNotFoundException fne) {
-        System.err.println("You either did not specify a file to upload or are "
-                + "trying to upload a file to a protected or nonexistent "
-                + "location.");
+			int read = 0;
+			final byte[] bytes = new byte[1024];
 
-    } finally {
-        if (out != null) {
-            out.close();
-        }
-        if (filecontent != null) {
-            filecontent.close();
-        }
-    }
+			while ((read = filecontent.read(bytes)) != -1) {
+				out.write(bytes, 0, read);
+			}
+		} catch (FileNotFoundException fne) {
+			System.err.println("You either did not specify a file to upload or are "
+					+ "trying to upload a file to a protected or nonexistent "
+					+ "location.");
+		} finally {
+			if (out != null) {
+				out.close();
+			}
+			if (filecontent != null) {
+				filecontent.close();
+			}
+		}
 	}
-	
+
 	public static void upload2(HttpServletRequest request, String filePath, String fileName) throws Exception{
-		// Check that we have a file upload request
-	      boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-	      DiskFileItemFactory factory = new DiskFileItemFactory();
-	      File file;
+		DiskFileItemFactory factory = new DiskFileItemFactory();
+		File file;
 
-	      // Create a new file upload handler
-	      ServletFileUpload upload = new ServletFileUpload(factory);
+		ServletFileUpload upload = new ServletFileUpload(factory);
 
-	      try{ 
-	      // Parse the request to get file items.
-	      List fileItems = upload.parseRequest(request);
-		
-	      // Process the uploaded file items
-	      Iterator i = fileItems.iterator();
+		try{ 
+			List fileItems = upload.parseRequest(request);
+			Iterator i = fileItems.iterator();
 
-	      while ( i.hasNext () ) 
-	      {
-	         FileItem fi = (FileItem)i.next();
-	         if ( !fi.isFormField () )	
-	         {
-	            // Write the file
-	               file = new File(filePath + File.separator
-	                       + fileName) ;
-	            fi.write( file ) ;
-	         }
-	      }
-	   }catch(FileNotFoundException ex) {
-	       System.out.println(ex);
-	   }
+			while ( i.hasNext () ) 
+			{
+				FileItem fi = (FileItem)i.next();
+				if ( !fi.isFormField () )	
+				{
+					// Write the file
+					file = new File(filePath + File.separator
+							+ fileName) ;
+					fi.write( file ) ;
+				}
+			}
+		}catch(FileNotFoundException ex) {
+			System.out.println(ex);
+		}
 	}
 }

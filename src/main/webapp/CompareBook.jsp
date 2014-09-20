@@ -43,8 +43,6 @@
 
 <!-- MY JS FILES -->
 <script type="text/javascript" src="./bootstrap-3.2.0/js/formchecker.js"></script>
-<script type="text/javascript"
-	src="./bootstrap-3.2.0/js/autocomplete.js"></script>
 </head>
 <body>
 
@@ -57,39 +55,6 @@
 				</div>
 			</div>
 		</div>
-
-		<!-- 		<div class="row"> -->
-		<!-- 			<div class="col-xs-12"> -->
-		<%-- 				<% if(isInError) { --%>
-		<%--             %> --%>
-
-		<%-- 				<%if(errorType.equals(ErrorType.ERROR_NOCITY)){ %> --%>
-		<!-- 				<div id="error_nocity" class="alert alert-danger" role="alert"> -->
-		<!-- 					<strong>Oh snap!</strong> No city -->
-		<%-- 					<%=city!=null?"'"+city+"' ":"" %>found... --%>
-		<!-- 				</div> -->
-		<%-- 				<% }else if(errorType.equals(ErrorType.ERROR_PROCESSING)){%> --%>
-
-		<!-- 				<div id="error_processing" class="alert alert-danger" role="alert"> -->
-		<!-- 					<strong>Oh snap!</strong> Something went wrong, sorry about that. -->
-		<!-- 					Try the service again. -->
-		<!-- 				</div> -->
-		<%-- 				<%} %> --%>
-
-		<%-- 				<%} else{%> --%>
-
-		<!-- 				<div id="error_form" class="alert alert-warning" role="alert" -->
-		<!-- 					style="display: none"> -->
-		<!-- 					<p> -->
-		<!-- 						<strong>Oh snap!</strong> Invalid form format, change it a bit and -->
-		<!-- 						try submitting again. -->
-		<!-- 					</p> -->
-		<!-- 					<p>Make sure you are not using non UTF-8 characters (e.g.: -->
-		<!-- 						&ccedil;, &eacute;, &agrave;, &icirc;...)</p> -->
-		<!-- 				</div> -->
-		<%-- 				<%} %> --%>
-		<!-- 			</div> -->
-		<!-- 		</div> -->
 
 		<div class="margin20 row">
 			<div class="col-xs-12">
