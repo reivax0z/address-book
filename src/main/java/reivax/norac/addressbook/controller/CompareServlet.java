@@ -64,12 +64,17 @@ public class CompareServlet extends HttpServlet {
 	    final Part filePart = request.getPart("file");
 	    
 	    try{
-	    	UploadJsonFile.upload(filePath, fileName, filePart);
+//	    	UploadJsonFile.upload(filePath, fileName, filePart);
+	    	UploadJsonFile.upload2(request, filePath, fileName);
 	    } catch (IOException e){
 			request.setAttribute("isInError", Boolean.TRUE);
 			request.getRequestDispatcher("DisplayBook.jsp").forward(request, response);
 			return;
-	    }
+	    } catch (Exception e) {
+			request.setAttribute("isInError", Boolean.TRUE);
+			request.getRequestDispatcher("DisplayBook.jsp").forward(request, response);
+			return;
+		}
 	    
 	    try {
 			List<Entry> uploaded = JsonDecode.decodeBook(filePath + File.separator
