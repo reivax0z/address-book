@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" -->
+<!-- 	xmlns="http://java.sun.com/xml/ns/javaee" -->
+<!-- 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" -->
+<!-- 	version="2.5"> -->
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+      version="3.0">
+
+		<display-name>Archetype Created Web Application</display-name>
+
+		<welcome-file-list>
+			<welcome-file>index.jsp</welcome-file>
+		</welcome-file-list>
+
+		<servlet>
+			<servlet-name>BookContent</servlet-name>
+			<servlet-class>reivax.norac.addressbook.controller.BookServlet</servlet-class>
+		</servlet>
+
+		<servlet-mapping>
+			<servlet-name>BookContent</servlet-name>
+			<url-pattern>/Book</url-pattern>
+		</servlet-mapping>
+		
+		<servlet>
+			<servlet-name>SearchBook</servlet-name>
+			<servlet-class>reivax.norac.addressbook.controller.SearchServlet</servlet-class>
+		</servlet>
+
+		<servlet-mapping>
+			<servlet-name>SearchBook</servlet-name>
+			<url-pattern>/SearchBookAction</url-pattern>
+		</servlet-mapping>
+		
+		<servlet>
+			<servlet-name>AddBook</servlet-name>
+			<servlet-class>reivax.norac.addressbook.controller.AddServlet</servlet-class>
+		</servlet>
+
+		<servlet-mapping>
+			<servlet-name>AddBook</servlet-name>
+			<url-pattern>/AddBookAction</url-pattern>
+		</servlet-mapping>
+		
+		<servlet>
+			<servlet-name>RemoveBook</servlet-name>
+			<servlet-class>reivax.norac.addressbook.controller.RemoveServlet</servlet-class>
+		</servlet>
+
+		<servlet-mapping>
+			<servlet-name>RemoveBook</servlet-name>
+			<url-pattern>/RemoveBookAction</url-pattern>
+		</servlet-mapping>
+		
+		<servlet>
+			<servlet-name>CompareBook</servlet-name>
+			<servlet-class>reivax.norac.addressbook.controller.CompareServlet</servlet-class>
+			<multipart-config>
+		        <max-file-size>10485760</max-file-size>
+		        <max-request-size>20971520</max-request-size>
+		        <file-size-threshold>5242880</file-size-threshold>
+		    </multipart-config>
+		</servlet>
+
+		<servlet-mapping>
+			<servlet-name>CompareBook</servlet-name>
+			<url-pattern>/CompareBookAction</url-pattern>
+		</servlet-mapping>
+
+	</web-app>
