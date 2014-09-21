@@ -14,6 +14,11 @@ import reivax.norac.addressbook.util.HibernateUtil;
  */
 public class DBConnection {
 	
+	/**
+	 * Adds an Entry into the DB.
+	 * 
+	 * @param e the Entry to be added
+	 */
 	public void addEntry(Entry e){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 
@@ -26,6 +31,11 @@ public class DBConnection {
 		HibernateUtil.shutdown();
 	}
 	
+	/**
+	 * Removes an Entry from the DB.
+	 * 
+	 * @param e the Entry to be removed
+	 */
 	public void removeEntry(Entry e){
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
@@ -37,8 +47,14 @@ public class DBConnection {
 		HibernateUtil.shutdown();
 	}
 	
+	/**
+	 * Gets all content from DB.
+	 * 
+	 * @return the list of Entry entities
+	 */
 	public static List<Entry> getBook(){
 		Session session = HibernateUtil.getSessionFactory().openSession();
+		
 		List<Entry> book = session.getNamedQuery("Entry.findAll").list();
 
 		HibernateUtil.shutdown();

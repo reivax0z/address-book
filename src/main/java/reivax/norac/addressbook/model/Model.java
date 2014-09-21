@@ -9,21 +9,29 @@ import java.util.List;
  */
 public class Model implements IModel{
 
+	/**
+	 * The connection to the DB.
+	 */
 	private DBConnection conn = null;
+	
+	/**
+	 * The address book;
+	 */
+	private List<Entry> currentAddressBook = null;
 	
 	private Model(){
 		conn = new DBConnection();
+		currentAddressBook = DBConnection.getBook();
 	}
 	
-	// Singleton, only one model
+	/**
+	 * Singleton, only one model
+	 */
 	private static Model singleton = new Model();
 	
 	public static Model getInstance(){
 		return singleton;
 	}
-	
-	// The address book
-	private List<Entry> currentAddressBook = DBConnection.getBook();
 	
 	public List<Entry> getCurrentAddressBook() {
 		return currentAddressBook;

@@ -8,6 +8,12 @@ import reivax.norac.addressbook.model.Entry;
 import reivax.norac.addressbook.util.ComparatorClose;
 import reivax.norac.addressbook.util.ComparatorExact;
 
+/**
+ * Tests covering the ComparatorExact class.
+ * 
+ * @author Xavier
+ *
+ */
 public class ComparatorExactTest {
 
 	@Test

@@ -6,6 +6,12 @@ import reivax.norac.addressbook.model.Entry;
 import reivax.norac.addressbook.util.ComparatorClose;
 import junit.framework.TestCase;
 
+/**
+ * Tests covering the ComparatorClose class.
+ * 
+ * @author Xavier
+ *
+ */
 public class ComparatorCloseTest extends TestCase {
 
 	@Test

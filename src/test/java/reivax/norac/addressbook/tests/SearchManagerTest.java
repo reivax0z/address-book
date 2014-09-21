@@ -13,6 +13,12 @@ import reivax.norac.addressbook.util.ComparatorClose;
 import reivax.norac.addressbook.util.ComparatorExact;
 import reivax.norac.addressbook.util.SearchManager;
 
+/**
+ * Tests covering the SearchManager class.
+ * 
+ * @author Xavier
+ *
+ */
 public class SearchManagerTest {
 
 	@Test
