@@ -6228,17 +6228,3 @@ button.close {
 .selectedPlace{
 	color:#F16D6D;
 }
-.input-full {
-    display: block;
-  }
-.input-light {
-    display: none;
-}
-@media screen and (max-width: 767px) {
-  .input-light {
-    display: block;
-  }
-  .input-full {
-    display: none;
-  }
-}

@@ -120,7 +120,6 @@
 							name="book_search_form" method="post"
 							onsubmit="return(validateSearchForm());"
 							class="shadow padding20 margin20">
-							<div class="input-full">
 							<div class="input-group">
 								<span class="input-group-addon">Input a name:</span> <input
 									type="text" name="search_name" class="form-control"
@@ -130,19 +129,6 @@
 										<span class="glyphicon glyphicon-search"></span> Search
 									</button>
 								</span>
-							</div>
-							</div>
-							<div class="input-light">
-							<div class="form-group">
-								<label for="exampleInputName">Input a name:</label> 
-								<input
-									type="text" name="search_name" class="form-control"
-									id="search_name" placeholder="i.e., Bob" value="">
-									<button type="submit" class="btn btn-primary">
-										<span class="glyphicon glyphicon-search"></span> Search
-									</button>
-								</span>
-							</div>
 							</div>
 							<div id="error_form_search" class="alert alert-warning" role="alert"
 							style="display: none">
@@ -168,7 +154,7 @@
 				<div class="margin20 row">
 					<div class="col-xs-12">
 						<form role="form" action="DownloadBookAction" id="book_download_form"
-							name="book_compare_form" method="post" 
+							name="book_download_form" method="post" 
 							class="shadow padding20 margin20">
 							<div class="form-group">
 								<label for="exampleInputFile">Download as a JSON file</label>
