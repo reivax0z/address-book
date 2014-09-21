@@ -105,11 +105,12 @@ public class CompareServlet extends HttpServlet {
 
 		} catch (ParseException e) {
 			request.setAttribute("isInError", Boolean.TRUE);
-			request.getRequestDispatcher("/DisplayBook.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("DisplayBook.jsp").forward(request, response);
+//			request.getRequestDispatcher("DisplayBook.jsp").forward(request, response);
 			return;
 		} catch (Exception e) {
 			request.setAttribute("isInError", Boolean.TRUE);
-			request.getRequestDispatcher("/DisplayBook.jsp").forward(request, response);
+			request.getRequestDispatcher("DisplayBook.jsp").forward(request, response);
 			return;
 		}
 	    
