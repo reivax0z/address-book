@@ -54,7 +54,10 @@ public class AddServlet extends HttpServlet {
 
 		// Get parameters
 		String name = request.getParameter("add_name");
+		name = name.trim();
 		String phone = request.getParameter("add_phone");
+		phone = phone.trim();
+		
 		Entry e = new Entry();
 		e.setName(name);
 		e.setPhone(phone);

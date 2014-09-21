@@ -75,7 +75,7 @@
 
 		<div class="row">
 			<div class="col-xs-12">
-				<% if(isInError) {
+				<% if(isInError != null && isInError) {
 				%>
 				<div id="error_processing" class="alert alert-danger" role="alert">
 					<p><strong>Oh snap!</strong> Something went wrong, sorry about that.
@@ -120,6 +120,7 @@
 							name="book_search_form" method="post"
 							onsubmit="return(validateSearchForm());"
 							class="shadow padding20 margin20">
+							<div class="input-full">
 							<div class="input-group">
 								<span class="input-group-addon">Input a name:</span> <input
 									type="text" name="search_name" class="form-control"
@@ -129,6 +130,19 @@
 										<span class="glyphicon glyphicon-search"></span> Search
 									</button>
 								</span>
+							</div>
+							</div>
+							<div class="input-light">
+							<div class="form-group">
+								<label for="exampleInputName">Input a name:</label> 
+								<input
+									type="text" name="search_name" class="form-control"
+									id="search_name" placeholder="i.e., Bob" value="">
+									<button type="submit" class="btn btn-primary">
+										<span class="glyphicon glyphicon-search"></span> Search
+									</button>
+								</span>
+							</div>
 							</div>
 							<div id="error_form_search" class="alert alert-warning" role="alert"
 							style="display: none">

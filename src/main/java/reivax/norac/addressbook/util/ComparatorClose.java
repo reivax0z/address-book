@@ -1,6 +1,8 @@
 package reivax.norac.addressbook.util;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 import reivax.norac.addressbook.model.Entry;
 
@@ -12,6 +14,9 @@ import reivax.norac.addressbook.model.Entry;
  */
 public class ComparatorClose implements Comparator<Entry> {
 	
+	/**
+	 * Characters to be replaced
+	 */
 	private static final String arrayChars [][] = {
 			{"a", "à", "â"},
 			{"c", "ç"},
@@ -21,6 +26,11 @@ public class ComparatorClose implements Comparator<Entry> {
 			{"u", "û", "ù"},
 		};
 	
+	/**
+	 * Replaces special characters (Léo should be the same as Leo)
+	 * @param string to be modified
+	 * @return the simplified String
+	 */
 	public static String replaceAllOccOfSpecialChars(String string){
 		string = string.replaceAll(" " , "");
 		string = string.replaceAll("-" , "");
@@ -32,6 +42,19 @@ public class ComparatorClose implements Comparator<Entry> {
 		}
 		
 		return string.toUpperCase();
+	}
+	
+	/**
+	 * Replaces special characters on the whole names contained in the list of Entry
+	 * @param list to be modified
+	 * @return the list containing simplified name Strings
+	 */
+	public static List<Entry> getListWithouSpecialChars(List<Entry> list){
+		List<Entry> l = new ArrayList<Entry>(list);
+		for(Entry e : l){
+			e.setName(replaceAllOccOfSpecialChars(e.getName()));
+		}
+		return l;
 	}
 	
 	public int compare(Entry o1, Entry o2) {

@@ -33,8 +33,8 @@ public class JsonDecode {
 	}
 	private static Entry decodeOneRecord(JSONObject o){
 		Entry obj = new Entry();
-		obj.setName((String)o.get("name"));
-		obj.setPhone((String)o.get("phone"));
+		obj.setName(((String)o.get("name")).trim());
+		obj.setPhone(((String)o.get("phone")).trim());
 		return obj;
 	}
 }

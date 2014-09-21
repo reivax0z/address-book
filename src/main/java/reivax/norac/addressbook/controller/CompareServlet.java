@@ -66,6 +66,11 @@ public class CompareServlet extends HttpServlet {
 
 	private void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		// Get book from Model
+		List<Entry> book = Model.getInstance().getCurrentAddressBook();
+		Collections.sort(book, new ComparatorExact());
+		request.setAttribute("book", book);
+		
 	    // Step1: Upload the file on system
 	    try{
 	    	UploadJsonFile.upload2(request, filePath, fileName);
@@ -85,28 +90,24 @@ public class CompareServlet extends HttpServlet {
 			List<Entry> uploaded = JsonDecode.decodeBook(filePath + File.separator
 			        + fileName);
 			
-			// Get book from Model
-			List<Entry> book = Model.getInstance().getCurrentAddressBook();
-			
 			// Get similar and different results
-			Collection<Entry> similar = new ArrayList<Entry>( book );
-			Collection<Entry> different = new ArrayList<Entry>();
-			different.addAll( book );
-			different.addAll( uploaded );
+			List<Entry> similar = new ArrayList<Entry>(book);
+			List<Entry> different = new ArrayList<Entry>();
+			different.addAll(book);
+			different.addAll(uploaded);
 
 			// Keep similar names
-			similar.retainAll( uploaded );
+			similar.retainAll(uploaded);
 			
 			// Keep different names
 			different.removeAll( similar );
 			
 			request.setAttribute("similarNames", similar);
 			request.setAttribute("differentNames", different);
-
+			
 		} catch (ParseException e) {
 			request.setAttribute("isInError", Boolean.TRUE);
-			getServletContext().getRequestDispatcher("/DisplayBook.jsp").forward(request, response);
-//			request.getRequestDispatcher("DisplayBook.jsp").forward(request, response);
+			request.getRequestDispatcher("DisplayBook.jsp").forward(request, response);
 			return;
 		} catch (Exception e) {
 			request.setAttribute("isInError", Boolean.TRUE);
