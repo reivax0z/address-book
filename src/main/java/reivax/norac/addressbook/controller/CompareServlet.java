@@ -107,6 +107,10 @@ public class CompareServlet extends HttpServlet {
 			request.setAttribute("isInError", Boolean.TRUE);
 			request.getRequestDispatcher("DisplayBook.jsp").forward(request, response);
 			return;
+		} catch (Exception e) {
+			request.setAttribute("isInError", Boolean.TRUE);
+			request.getRequestDispatcher("DisplayBook.jsp").forward(request, response);
+			return;
 		}
 	    
 		request.setAttribute("compareSuccess", Boolean.TRUE);

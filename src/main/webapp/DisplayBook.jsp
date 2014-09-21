@@ -78,8 +78,9 @@
 				<% if(isInError) {
 				%>
 				<div id="error_processing" class="alert alert-danger" role="alert">
-					<strong>Oh snap!</strong> Something went wrong, sorry about that.
-					Try the service again.
+					<p><strong>Oh snap!</strong> Something went wrong, sorry about that.
+					Try the service again.</p>
+					<p>If you uploaded a JSON file, make sure the content format is valid!</p>
 				</div>
 				<%} %>
 			</div>
