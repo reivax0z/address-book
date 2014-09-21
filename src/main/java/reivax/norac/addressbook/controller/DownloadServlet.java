@@ -71,6 +71,7 @@ public class DownloadServlet extends HttpServlet {
 		String bookAsJsonString = JsonEncode.encodeBook(book).toJSONString();
 	    try{
 	    	DownloadJsonFile.download(bookAsJsonString, response, filePath);
+	    	return;
 	    } catch (IOException e){
 			request.setAttribute("isInError", Boolean.TRUE);
 			request.getRequestDispatcher("DisplayBook.jsp").forward(request, response);
@@ -81,7 +82,7 @@ public class DownloadServlet extends HttpServlet {
 			return;
 		}
 	    
-		request.setAttribute("isInError", Boolean.FALSE);
-		request.getRequestDispatcher("DisplayBook.jsp").forward(request, response);
+//		request.setAttribute("isInError", Boolean.FALSE);
+//		request.getRequestDispatcher("DisplayBook.jsp").forward(request, response);
 	}
 }
