@@ -145,6 +145,27 @@
 				</div>
 				
 				<div class="tab-pane" id="compare">
+				
+				<div class="page-header">
+					<h1>Download Address Book Content</h1>
+				</div>
+				
+				<div class="margin20 row">
+					<div class="col-xs-12">
+						<form role="form" action="DownloadBookAction" id="book_download_form"
+							name="book_compare_form" method="post" 
+							class="shadow padding20 margin20">
+							<div class="form-group">
+								<label for="exampleInputFile">Download as a JSON file</label>
+							</div>
+							<button type="submit" class="btn btn-primary">
+								<span class="glyphicon glyphicon-download"></span> Download
+							</button>
+						</form>
+					</div>
+				</div>
+
+				<hr>
 
 				<div class="page-header">
 					<h1>
@@ -169,7 +190,7 @@
 								</p>
 							</div>
 							<button type="submit" class="btn btn-primary">
-								<span class="glyphicon glyphicon-upload"></span> Submit
+								<span class="glyphicon glyphicon-upload"></span> Upload
 							</button>
 							<div id="error_form_compare" class="alert alert-warning" role="alert"
 							style="display: none">

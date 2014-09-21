@@ -24,20 +24,33 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
  */
 public class UploadJsonFile {
 
+	/**
+	 * Method #1 to upload on the file system (JEE version)
+	 * 
+	 * @param filePath path to the file
+	 * @param fileName name of the file
+	 * @param filePart uploaded content
+	 * @throws IOException
+	 */
 	public static void upload(String filePath, String fileName, Part filePart) throws IOException{
 
 		OutputStream out = null;
 		InputStream filecontent = null;
 
 		try {
+			// Create file on the system (temporary)
 			out = new FileOutputStream(new File(filePath + File.separator
 					+ fileName));
+			
+			// Get the upload
 			filecontent = filePart.getInputStream();
 
 			int read = 0;
 			final byte[] bytes = new byte[1024];
 
+			// Browse content
 			while ((read = filecontent.read(bytes)) != -1) {
+				// Write the file on the system (temporary)
 				out.write(bytes, 0, read);
 			}
 		} catch (FileNotFoundException fne) {
@@ -54,13 +67,23 @@ public class UploadJsonFile {
 		}
 	}
 
+	/**
+	 * Method #2 to upload on the file system (Apache Commons version)
+	 * 
+	 * @param request the request containing the upload 
+	 * @param filePath path to the file
+	 * @param fileName name of the file
+	 * @throws Exception
+	 */
 	public static void upload2(HttpServletRequest request, String filePath, String fileName) throws Exception{
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		File file;
 
+		// Get the upload
 		ServletFileUpload upload = new ServletFileUpload(factory);
 
 		try{ 
+			// Browse files
 			List fileItems = upload.parseRequest(request);
 			Iterator i = fileItems.iterator();
 
@@ -69,7 +92,7 @@ public class UploadJsonFile {
 				FileItem fi = (FileItem)i.next();
 				if ( !fi.isFormField () )	
 				{
-					// Write the file
+					// Write the file on the system (temporary)
 					file = new File(filePath + File.separator
 							+ fileName) ;
 					fi.write( file ) ;

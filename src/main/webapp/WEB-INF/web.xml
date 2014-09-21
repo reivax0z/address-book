@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" -->
-<!-- 	xmlns="http://java.sun.com/xml/ns/javaee" -->
-<!-- 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" -->
-<!-- 	version="2.5"> -->
-
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
@@ -68,6 +63,16 @@
 		<servlet-mapping>
 			<servlet-name>CompareBook</servlet-name>
 			<url-pattern>/CompareBookAction</url-pattern>
+		</servlet-mapping>
+		
+		<servlet>
+			<servlet-name>DownloadBook</servlet-name>
+			<servlet-class>reivax.norac.addressbook.controller.DownloadServlet</servlet-class>
+		</servlet>
+
+		<servlet-mapping>
+			<servlet-name>DownloadBook</servlet-name>
+			<url-pattern>/DownloadBookAction</url-pattern>
 		</servlet-mapping>
 
 	</web-app>

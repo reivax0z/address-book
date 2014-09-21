@@ -3,6 +3,7 @@ package reivax.norac.addressbook.tests;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
@@ -20,7 +21,6 @@ public class SearchManagerTest {
 		List<Entry> book = new ArrayList<Entry>();
 		
 		Entry searchedItem = new Entry();
-		searchedItem.setId(0);
 		searchedItem.setName("Bob");
 		
 		Entry e = new Entry();
@@ -47,7 +47,10 @@ public class SearchManagerTest {
 		e4.setPhone("333333333");
 		book.add(e4);
 		
-		assertEquals("Exat macth", 1, tester.searchEngine(searchedItem, book, new ComparatorExact()).size());
-//		assertEquals("Close macth", 2, tester.searchEngine(searchedItem, book, new ComparatorClose()).size());
+		List<Entry> matchedNames = tester.searchEngine(searchedItem, book, new ComparatorExact());
+		List<Entry> closeNames = tester.searchEngine(searchedItem, book, new ComparatorClose());
+		
+		assertEquals("Exat macth", 1, matchedNames.size());
+//		assertEquals("Close macth", 2, closeNames.size());
 	}
 }
