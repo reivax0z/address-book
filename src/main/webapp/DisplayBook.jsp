@@ -63,15 +63,20 @@
 </head>
 <body onload="setActiveTab(activeTab)">
 
-	<div class="container">
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="container">
+	      <div class="container-fluid">
+	        <div class="navbar-header">
+	          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-user"></span> Address Book</a>
+	        </div>
+	        <div class="collapse navbar-collapse">
+	          <p class="navbar-text navbar-right">Search, Manage and Compare!</p>
+	        </div>
+	      </div>
+    	</div>
+    </nav>
 
-		<div class="row">
-			<div class="col-xs-12 col-sm-12">
-				<div class="jumbotron shadow background-grey">
-					<h1>My Address Book</h1>
-				</div>
-			</div>
-		</div>
+	<div class="container">
 
 		<div class="row">
 			<div class="col-xs-12">
@@ -300,7 +305,9 @@
 				<hr>
 				
 				</div>
-
+				
+				</div>
+				
 				<footer>
 				<p class="pull-right">
 					<a href="#">Back to top</a>

@@ -47,15 +47,20 @@
 </head>
 <body>
 
-	<div class="container">
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="container">
+	      <div class="container-fluid">
+	        <div class="navbar-header">
+	          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-fire"></span> Melbourne BBQ</a>
+	        </div>
+	        <div class="collapse navbar-collapse">
+	          <p class="navbar-text navbar-right">Because we all love a good barbie!</p>
+	        </div>
+	      </div>
+    	</div>
+    </nav>
 
-		<div class="row">
-			<div class="col-xs-12 col-sm-12">
-				<div class="jumbotron shadow background-grey">
-					<h1>My Address Book</h1>
-				</div>
-			</div>
-		</div>
+	<div class="container">
 
 		<div class="margin20 row">
 			<div class="col-xs-12">
