@@ -51,10 +51,10 @@
 		<div class="container">
 	      <div class="container-fluid">
 	        <div class="navbar-header">
-	          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-fire"></span> Melbourne BBQ</a>
+	          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-user"></span> Address Book</a>
 	        </div>
 	        <div class="collapse navbar-collapse">
-	          <p class="navbar-text navbar-right">Because we all love a good barbie!</p>
+	          <p class="navbar-text navbar-right">Search, Manage and Compare!</p>
 	        </div>
 	      </div>
     	</div>
