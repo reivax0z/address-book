@@ -159,7 +159,7 @@
 				<div class="margin20 row">
 					<div class="col-xs-12">
 						<form role="form" action="DownloadBookAction" id="book_download_form"
-							name="book_download_form" method="post" 
+							name="book_download_form" method="post" target="_blank"
 							class="shadow padding20 margin20">
 							<div class="form-group">
 								<label for="exampleInputFile">Download as a JSON file</label>
@@ -313,7 +313,7 @@
 					<a href="#">Back to top</a>
 				</p>
 				<p>
-					© <a href="http://www.linkedin.com/in/xavierwilfriddimitrycaron"
+					ï¿½ <a href="http://www.linkedin.com/in/xavierwilfriddimitrycaron"
 						target="_blank"><b>Xavier CARON</b></a>, 2014
 				</p>
 				</footer>

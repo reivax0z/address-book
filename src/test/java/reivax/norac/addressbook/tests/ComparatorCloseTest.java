@@ -21,10 +21,10 @@ public class ComparatorCloseTest extends TestCase {
 		e1.setName("Bob");
 		assertEquals("BOB", ComparatorClose.replaceAllOccOfSpecialChars(e1.getName()));
 
-		e1.setName("Léa");
+		e1.setName("Lea");
 		assertEquals("LEA", ComparatorClose.replaceAllOccOfSpecialChars(e1.getName()));
 
-		e1.setName("âéîç");
+		e1.setName("aeic");
 		assertEquals("AEIC", ComparatorClose.replaceAllOccOfSpecialChars(e1.getName()));
 	}
 	
@@ -38,13 +38,13 @@ public class ComparatorCloseTest extends TestCase {
 		e2.setName("Boby");
 		assertTrue("Boby and Bob are similar", tester.compare(e1, e2) == 0);
 		
-		e1.setName("Léo");
+		e1.setName("Leo");
 		e2.setName("Lea");
-		assertTrue("Léo and Lea are different", tester.compare(e1, e2) != 0);
+		assertTrue("Leo and Lea are different", tester.compare(e1, e2) != 0);
 		
-		e1.setName("Léo");
+		e1.setName("Leo");
 		e2.setName("Leonidas");
-		assertTrue("Léo and Leonidas are similar", tester.compare(e1, e2) == 0);
+		assertTrue("Leo and Leonidas are similar", tester.compare(e1, e2) == 0);
 		
 		e1.setName("Martin");
 		e2.setName("Josh");
