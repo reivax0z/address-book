@@ -7,6 +7,12 @@ Links:
 
 The source code includes minimum comments to each class and most of the methods to be understood by others.
 
+To start the application locally:
+- mvn package
+- java -jar target/dependency/jetty-runner.jar target/*.war
+This will package the project using maven (if the tests pass) and then run the application locally via Jetty, on localhost:8080.
+Note that the database is still the remote one from AWS.
+
 The web-app uses the following technologies:
 - Bootstrap framework for a responsive display on all devices.
 - Jetty server.
